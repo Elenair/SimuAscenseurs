@@ -16,6 +16,7 @@ public class DummyFlow implements IFlow, IUser, Event {
 	{
 		IERF = new UIElevatorRequestFactory();
 		Sequencer.addProcecss(this, 1000);
+		System.out.println("Bienvenue :)");
 	}
 	
 	@Override
