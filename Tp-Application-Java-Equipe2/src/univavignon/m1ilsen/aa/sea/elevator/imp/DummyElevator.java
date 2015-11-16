@@ -10,12 +10,12 @@ import univavignon.m1ilsen.aa.sea.controlsystem.interface_.IElevatorNotifier;
 public class DummyElevator implements Event, IElevatorCommand {
 	
 	/**
-	 * 
+	 *   
 	 */
 	private IElevatorNotifier iElevatorNotifier;
 	private ElevatorState state;
 	private int level = 0;
-	
+	/** fonction dummy **/
 	public DummyElevator()
 	{
 		Sequencer.addProcecss(this, 500);
