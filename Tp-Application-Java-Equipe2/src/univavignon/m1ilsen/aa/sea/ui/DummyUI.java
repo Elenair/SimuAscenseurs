@@ -2,7 +2,6 @@ package univavignon.m1ilsen.aa.sea.ui;
 
 import java.io.File;
 
-import univavignon.m1ilsen.aa.sea.elevator.interface_.ElevatorFactory;
 import univavignon.m1ilsen.aa.sea.flow.interface_.FlowFactory;
 import univavignon.m1ilsen.aa.sea.flow.interface_.IFlow;
 
@@ -24,6 +23,7 @@ public class DummyUI {
 		D.ef.buildElevator(new File("setting"));
 		IFlow f = D.ff.buildFlow(new File(D.flowSetting));
 		f.start();
+	   System.out.println("jhqsd");
 	}
 
 }
