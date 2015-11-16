@@ -23,7 +23,6 @@ public class DummyUI {
 		D.ef.buildElevator(new File("setting"));
 		IFlow f = D.ff.buildFlow(new File(D.flowSetting));
 		f.start();
-	   System.out.println("jhqsd");
 	}
 
 }
