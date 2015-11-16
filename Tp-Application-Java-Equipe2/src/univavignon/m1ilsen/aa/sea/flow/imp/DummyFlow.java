@@ -15,6 +15,7 @@ public class DummyFlow implements IFlow, IUser, Event {
 	public DummyFlow()
 	{
 		Sequencer.addProcecss(this, 1000);
+		System.out.println("Bienvenue :)");
 	}
 	
 	@Override
