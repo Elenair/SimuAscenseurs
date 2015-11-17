@@ -46,7 +46,7 @@ public class Process {
 	{ 
 		if (t-lastCall > periode)
 		{
-			event.trigger(t-lastCall);
+			event.trigger(t);
 			lastCall = t;
 		}
 	 } 
