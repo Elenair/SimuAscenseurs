@@ -17,6 +17,7 @@ public class Compute {
 	 */
 	public float WaitingTimeAverage() { 
 		// TODO Auto-generated method
+		
 		return 0;
 	 }
 
