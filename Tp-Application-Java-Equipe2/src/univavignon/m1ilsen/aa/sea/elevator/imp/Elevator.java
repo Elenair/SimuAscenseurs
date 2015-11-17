@@ -67,9 +67,7 @@ public class Elevator implements IElevatorCommand {
 	 * 
 	 * @param level 
 	 */
-	//public void StopNextLevel(int level) { 
-		// TODO Auto-generated method
-	// }
+
 	/**
 	 * 
 	 */
