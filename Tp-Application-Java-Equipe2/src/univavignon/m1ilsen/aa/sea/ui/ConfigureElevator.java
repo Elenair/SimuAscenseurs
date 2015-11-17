@@ -32,12 +32,13 @@ public class ConfigureElevator {
 		return done;	
 }
 	
-class int createElevator()
+public int createElevator()
 {
 	
 	if (chooseElevatorFile()) {
-		return buildElevator( file );
+		//return buildElevator( file );
 	}
+	return 0;
 }
 				
 

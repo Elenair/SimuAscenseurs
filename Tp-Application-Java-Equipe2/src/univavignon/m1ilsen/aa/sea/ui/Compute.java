@@ -1,6 +1,8 @@
 package univavignon.m1ilsen.aa.sea.ui;
 
 public class Compute {
+	
+	
 
 	/**
 	 * 
@@ -8,6 +10,9 @@ public class Compute {
 	 */
 	public float TripTimeAverage() { 
 		// TODO Auto-generated method
+		
+		
+		
 		return 0;
 	 }
 

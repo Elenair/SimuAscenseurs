@@ -7,33 +7,30 @@ public class ComputeHandling {
 	/**
 	 * 
 	 */
-	public List<Float> table;
-	/**
-	 * 
+	public float [] table;
+	float compute;
+	
+	/** Getter of table
 	 */
-	public Compute compute;
-	/**
-	 * Getter of table
-	 */
-	public List<Float> getTable() {
-	 	 return table; 
+	public float getTable() {
+	 	 return 0; 
 	}
 	/**
 	 * Setter of table
 	 */
-	public void setTable(List<Float> table) { 
-		 this.table = table; 
+	public void setTable( float table ) { 
+		 //this.table = table; 
 	}
 	/**
 	 * Getter of compute
 	 */
-	public Compute getCompute() {
+	public float getCompute() {
 	 	 return compute; 
 	}
 	/**
 	 * Setter of compute
 	 */
-	public void setCompute(Compute compute) { 
+	public void setCompute(float compute) { 
 		 this.compute = compute; 
 	}
 	/**
