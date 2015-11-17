@@ -6,30 +6,11 @@ public class FlowFile {
 
 	/**
 	 * 
-	 */
-	public File file;
-
-	/**
-	 * Getter of file
-	 */
-	public File getFile() {
-	 	 return file; 
-	}
-
-	/**
-	 * Setter of file
-	 */
-	public void setFile(File file) { 
-		 this.file = file; 
-	}
-
-	/**
-	 * 
 	 * @return 
 	 */
-	public boolean getFlowFile() { 
+	public boolean getFlowFile( File file ) { 
 		// TODO Auto-generated method
-		if( this.file.exists() ){
+		if( file.exists() ){
 			return true ;
 		}
 		return false;

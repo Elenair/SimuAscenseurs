@@ -3,12 +3,15 @@ package univavignon.m1ilsen.aa.sea.ui;
 import java.io.File;
 import java.util.Scanner;
 
+import univavignon.m1ilsen.aa.sea.flow.interface_.FlowFactory;
+import univavignon.m1ilsen.aa.sea.flow.interface_.IFlow;
+
 public class ConfigureFlow { 
 	
-	public boolean chooseFlowFile(){
-		
-		
+	File file ;
 	
+	public boolean chooseFlowFile(){
+
 		
 		FlowFile flowFile = new FlowFile();
 		
@@ -26,15 +29,23 @@ public class ConfigureFlow {
 			String nameFile = sc.nextLine();
 			System.out.println("Vous avez saisi " +  nameFile);
 			
-			File file = new File( nameFile );
+			file = new File( nameFile );
 			
-			flowFile.setFile( file );
-			
-			done = flowFile.getFlowFile();
+			done = flowFile.getFlowFile( file );
 			
 		}while( !done );
 		
 		return done ;
+	}
+	
+	public IFlow createFlow(){
+		
+		if( chooseFlowFile() ){
+			FlowFactory ffc = new FlowFactory() ;
+			return ffc.buildFlow( file );
+		}
+		
+		return null ;
 	}
 
 }
