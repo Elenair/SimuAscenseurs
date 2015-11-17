@@ -29,6 +29,10 @@ public class ElevatorFile {
 	 */
 	public boolean getElevatorFile() { 
 		// TODO Auto-generated method
+		
+		if( this.file.exists() ){
+			return true ;
+		}
 		return false;
 	 } 
 

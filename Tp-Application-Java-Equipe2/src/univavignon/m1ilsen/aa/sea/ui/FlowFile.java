@@ -29,6 +29,9 @@ public class FlowFile {
 	 */
 	public boolean getFlowFile() { 
 		// TODO Auto-generated method
+		if( this.file.exists() ){
+			return true ;
+		}
 		return false;
 	 } 
 

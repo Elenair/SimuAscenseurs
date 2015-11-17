@@ -24,7 +24,7 @@ public class ElevatorCommandFactory {
 	 * @return 
 	 */
 	public static IElevatorCommand getElevatorCommand(IElevatorNotifier IEN) { 
-		elevator.setIElevatorNotifier(IEN);
+		if (elevator != null) { elevator.setIElevatorNotifier(IEN); }
 		return elevator;
 	 } 
 
