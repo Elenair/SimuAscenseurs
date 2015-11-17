@@ -62,7 +62,7 @@ public class UIElevatorRequestFactory {
 	 * @param user 
 	 */
 	public void createCall(int level, Direction direction, IUser user) { 
-		// TODO Auto-generated method
+		elevatorUIDummy.addCall(level, direction, user);
 	 }
 	/**
 	 * 
@@ -70,7 +70,7 @@ public class UIElevatorRequestFactory {
 	 * @param user 
 	 */
 	public void createMove(int level, IUser user) { 
-		// TODO Auto-generated method
+		elevatorUIDummy.addMove(level, user);
 	 } 
 
 }

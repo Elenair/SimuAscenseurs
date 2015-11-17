@@ -60,13 +60,15 @@ public class Elevator implements IElevatorCommand {
 	 */
 	public void moveOn(double speed ) { 
 		// TODO Auto-generated method
-		
-		
 	 }
 	/**
 	 * 
 	 * @param level 
 	 */
+
+	public void StopNextLevel(int level) { 
+		// TODO Auto-generated method
+	 }
 
 	/**
 	 * 
