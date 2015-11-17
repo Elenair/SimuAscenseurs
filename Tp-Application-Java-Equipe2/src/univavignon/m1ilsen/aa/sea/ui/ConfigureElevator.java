@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.Scanner;
 
 public class ConfigureElevator {
+	
+	File file ;
+	
 	public boolean chooseElevatorFile(){
 		
 		ElevatorFile ElevatorFile = new ElevatorFile();
@@ -20,18 +23,22 @@ public class ConfigureElevator {
 			
 			Scanner s = new Scanner(System.in);
 			String ElevatorFileName = s.nextLine();
-			File file = new File(  ElevatorFileName ) ;
-			ElevatorFile.setFile(file  );
-			
-			
-			done = ElevatorFile.getElevatorFile();
+			file = new File(  ElevatorFileName ) ;
+
+			done = ElevatorFile.getElevatorFile( file );
 			
 			} while (!done);
 		
 		return done;	
 }
 	
-
+class int createElevator()
+{
+	
+	if (chooseElevatorFile()) {
+		return buildElevator( file );
+	}
+}
 				
 
 }
