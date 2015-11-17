@@ -20,7 +20,6 @@ public class DummyFlow implements IFlow, IUser, Event {
 	@Override
 	public void notifyCall(long t) {
 		System.out.println("notifyCall " + t);
-		System.out.println("time = " + SimulationClock.time());
 		IERF.createMove(3,this);
 		
 	}
@@ -28,7 +27,6 @@ public class DummyFlow implements IFlow, IUser, Event {
 	@Override
 	public void notifyMove(long t) {
 		System.out.println("notifyMove " + t);
-		System.out.println("time = " + SimulationClock.time());
 		
 	}
 
