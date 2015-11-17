@@ -26,6 +26,13 @@ public class ElevatorCommandFactory {
 	public static IElevatorCommand getElevatorCommand(IElevatorNotifier IEN) { 
 		elevator.setIElevatorNotifier(IEN);
 		return elevator;
-	 } 
+	 }
+
+	/**
+	 * Getter of elevator
+	 */
+	public DummyElevator getElevator() {
+	 	 return elevator; 
+	} 
 
 }

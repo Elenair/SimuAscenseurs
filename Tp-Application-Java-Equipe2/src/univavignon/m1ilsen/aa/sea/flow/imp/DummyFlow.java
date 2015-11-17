@@ -11,6 +11,10 @@ import univavignon.m1ilsen.aa.sea.sequencer.interface_.Sequencer;
 public class DummyFlow implements IFlow, IUser, Event {
 
 	private UIElevatorRequestFactory IERF = new UIElevatorRequestFactory();
+	/**
+	 * 
+	 */
+	public UIElevatorRequestFactory uIElevatorRequestFactory;
 	
 	public DummyFlow()
 	{
@@ -18,6 +22,10 @@ public class DummyFlow implements IFlow, IUser, Event {
 		System.out.println("Bienvenue :)");
 	}
 	
+	/**
+	 * 
+	 * @param t 
+	 */
 	@Override
 	public void notifyCall(long t) {
 		System.out.println("notifyCall " + t);
@@ -26,6 +34,10 @@ public class DummyFlow implements IFlow, IUser, Event {
 		
 	}
 
+	/**
+	 * 
+	 * @param t 
+	 */
 	@Override
 	public void notifyMove(long t) {
 		System.out.println("notifyMove " + t);
@@ -33,6 +45,9 @@ public class DummyFlow implements IFlow, IUser, Event {
 		
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void start() {
 		Sequencer.create(10000, System.currentTimeMillis(), 1, 1);
@@ -40,17 +55,38 @@ public class DummyFlow implements IFlow, IUser, Event {
 		
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void getMaxLevel() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * 
+	 * @param t 
+	 */
 	@Override
 	public void trigger(long t) {
 		System.out.println("trigger flow");
 		IERF.createCall(3,Direction.up,this);
 		
+	}
+
+	/**
+	 * Getter of uIElevatorRequestFactory
+	 */
+	public UIElevatorRequestFactory getUIElevatorRequestFactory() {
+	 	 return uIElevatorRequestFactory; 
+	}
+
+	/**
+	 * Setter of uIElevatorRequestFactory
+	 */
+	public void setUIElevatorRequestFactory(UIElevatorRequestFactory uIElevatorRequestFactory) { 
+		 this.uIElevatorRequestFactory = uIElevatorRequestFactory; 
 	}
 
 }

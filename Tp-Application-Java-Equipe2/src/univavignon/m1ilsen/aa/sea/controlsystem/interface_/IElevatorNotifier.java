@@ -14,6 +14,18 @@ public interface IElevatorNotifier {
 	 * 
 	 * @param elevatorState 
 	 */
-	public void notifyState(ElevatorState elevatorState, long t); 
+	public void notifyState(ElevatorState elevatorState, long t);
+
+	/**
+	 * 
+	 * @param level 
+	 */
+	public void notifyLevel(int level);
+
+	/**
+	 * 
+	 * @param elevatorState 
+	 */
+	public void notifyState(ElevatorState elevatorState); 
 
 }

@@ -63,6 +63,17 @@ public class DummyElevator implements Event, IElevatorCommand {
 			level++;
 		}
 		
-	} 
+	}
+
+	/**
+	 * 
+	 */
+	public void Operation1() { 
+		// TODO Auto-generated method
+	 }
+
+	public void stopAtLevel(int level) { 
+		// TODO Auto-generated method
+	 } 
 
 }
