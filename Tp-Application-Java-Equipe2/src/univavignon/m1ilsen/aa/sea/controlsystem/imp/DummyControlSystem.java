@@ -49,4 +49,16 @@ public class DummyControlSystem implements IElevatorNotifier{
 		IEC.move(Direction.up);
 	}
 
+	@Override
+	public void notifyLevel(int level) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifyState(ElevatorState elevatorState) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
