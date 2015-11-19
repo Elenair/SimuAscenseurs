@@ -2,7 +2,7 @@ package univavignon.m1ilsen.aa.sea.elevator.interface_;
 
 import java.io.File;
 
-import univavignon.m1ilsen.aa.sea.elevator.imp.DummyElevator;
+import univavignon.m1ilsen.aa.sea.elevator.imp.ShaftCage;
 
 public class ElevatorFactory {
 	
@@ -12,7 +12,7 @@ public class ElevatorFactory {
 	 * @return 
 	 */
 	public int buildElevator(File setting) { 
-		DummyElevator elevator = new DummyElevator();
+		ShaftCage elevator = new ShaftCage();
 		ElevatorCommandFactory.setElevator(elevator);
 		return 0;
 	 } 

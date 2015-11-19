@@ -39,6 +39,8 @@ public class Sensor {
 	 */
 	public void detection () { 
 		// TODO Auto-generated method
+		
+		cross = true;
 	 } 
 
 }

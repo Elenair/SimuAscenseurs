@@ -4,7 +4,7 @@ import univavignon.m1ilsen.aa.sea.elevator.interface_.IElevatorCommand;
 import univavignon.m1ilsen.aa.sea.commontypes.ElevatorState;
 import univavignon.m1ilsen.aa.sea.commontypes.Direction;
 
-public class Elevator implements IElevatorCommand {
+public class Elevator  {
 
 	/**
 	 * 
@@ -58,27 +58,21 @@ public class Elevator implements IElevatorCommand {
 	 * 
 	 * @param speed  
 	 */
-	public void moveOn(double speed ) { 
-		// TODO Auto-generated method
-		
-		
-	 }
-	/**
-	 * 
-	 * @param level 
-	 */
+	
+	
 
-	/**
-	 * 
-	 */
+
 	public void Openning() { 
 		// TODO Auto-generated method
+		
+		state= ElevatorState.open;
 	 }
 	/**
 	 * 
 	 */
 	public void closeDoor() { 
 		// TODO Auto-generated method
+		state = ElevatorState.closed;
 	 }
 	/**
 	 * 
@@ -86,18 +80,6 @@ public class Elevator implements IElevatorCommand {
 	public void computeTime() { 
 		// TODO Auto-generated method
 	 }
-	/**
-	 * 
-	 */
-	public void stopAtLevel() { 
-		// TODO Auto-generated method
-	 }
-	/**
-	 * 
-	 * @param direction 
-	 */
-	public void move(Direction direction) { 
-		// TODO Auto-generated method
-	 } 
+	
 
 }

@@ -10,6 +10,6 @@ public interface IFlow {
 	/**
 	 * 
 	 */
-	public void getMaxLevel(); 
+	public int getMaxLevel(); 
 
 }
