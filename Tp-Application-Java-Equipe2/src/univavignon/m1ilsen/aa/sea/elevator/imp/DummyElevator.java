@@ -27,6 +27,7 @@ public class DummyElevator implements Event, IElevatorCommand {
 	 	 return iElevatorNotifier; 
 	}
 
+	/** mabano**/
 	/**
 	 * Setter of iElevatorNotifier
 	 */
