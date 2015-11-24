@@ -3,13 +3,13 @@ package univavignon.m1ilsen.aa.sea.elevator.imp;
 public class Sensor {
 
 	/**
-	 * 
+	 *  teste si le capteur est coupé ou pas
 	 */
-	public boolean cross ;
+	 boolean cross=false ;
 	/**
-	 * 
+	 * identifiant du capteur
 	 */
-	public int id_sensor;
+	 int id_sensor;
 	/**
 	 * Getter of cross 
 	 */
