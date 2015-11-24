@@ -11,7 +11,7 @@ public class Engine{
 	/**
 	 * 
 	 */
-    public double speed = 0.0;
+     double speed = 0.0;
 	
 	public double getSpeed() {
 	 	 return speed; 
@@ -19,8 +19,8 @@ public class Engine{
 	/**
 	 * Setter of speed
 	 */
-	public void setSpeed(double speed) { 
-		 this.speed = speed; 
+	public void setSpeed(double vitesse) { 
+		 this.speed = vitesse; 
 	}
 	/**
 	 * 
@@ -41,7 +41,7 @@ public class Engine{
 	}
 	
 	public void ChangeSpeed(){
-		speed =  1.0; 
+		speed =  10.0; 
 		
 	}
 

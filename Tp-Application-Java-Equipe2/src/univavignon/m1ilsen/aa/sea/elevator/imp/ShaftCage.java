@@ -9,6 +9,11 @@ public class ShaftCage implements IElevatorCommand {
 
 	private IElevatorNotifier iElevatorNotifier;
 	
+	double heightShaftCage;
+	double heightBetween2Level;
+	Sensor[] tabSensors;
+	Engine engine;
+	Elevator elevator;
 	@Override
 	public void stopAtLevel() {
 		// TODO Auto-generated method stub
