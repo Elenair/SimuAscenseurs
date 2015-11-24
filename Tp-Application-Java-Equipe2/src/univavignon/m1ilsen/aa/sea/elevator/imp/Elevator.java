@@ -9,6 +9,10 @@ public class Elevator  {
 	/**
 	 * 
 	 */
+	public long temp_ouv;
+	public long temp_ferm;
+	public long temp_attente;
+	
 	public ElevatorState state;
 	/**
 	 * 
@@ -57,28 +61,36 @@ public class Elevator  {
 	/**
 	 * 
 	 * @param speed  
+	 * @throws InterruptedException 
 	 */
 	
 	
 
 
-	public void Openning() { 
+	public void Openning(long t) throws InterruptedException { 
+	
 		// TODO Auto-generated method
-		
+		temp_ouv = t;
+		wait(temp_ouv);
 		state= ElevatorState.open;
 	 }
 	/**
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public void closeDoor() { 
+	public void closeDoor(long t) throws InterruptedException { 
 		// TODO Auto-generated method
+		temp_ferm = t;
+		wait(temp_ferm);
 		state = ElevatorState.closed;
 	 }
 	/**
 	 * 
 	 */
-	public void computeTime() { 
+	public long computeTime(long t) { 
 		// TODO Auto-generated method
+		temp_attente = t;
+		return (temp_attente + temp_ferm + temp_ouv);
 	 }
 	
 
