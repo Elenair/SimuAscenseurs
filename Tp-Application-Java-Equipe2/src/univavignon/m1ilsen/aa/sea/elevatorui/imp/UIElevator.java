@@ -1,6 +1,7 @@
 package univavignon.m1ilsen.aa.sea.elevatorui.imp;
 
 import univavignon.m1ilsen.aa.sea.commontypes.Direction;
+import univavignon.m1ilsen.aa.sea.controlsystem.interface_.CSRequestFactory;
 import univavignon.m1ilsen.aa.sea.elevator.imp.Elevator;
 import univavignon.m1ilsen.aa.sea.flow.imp.Notify;
 import univavignon.m1ilsen.aa.sea.flow.imp.User;
