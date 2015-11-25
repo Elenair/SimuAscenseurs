@@ -4,7 +4,6 @@ import univavignon.m1ilsen.aa.sea.commontypes.Direction;
 import univavignon.m1ilsen.aa.sea.elevator.imp.Elevator;
 import univavignon.m1ilsen.aa.sea.flow.imp.Notify;
 import univavignon.m1ilsen.aa.sea.flow.imp.User;
-import univavignon.m1ilsen.aa.sea.flow.interface_.IUser;
 
 public class UIElevator {
 
@@ -14,12 +13,20 @@ public class UIElevator {
 	 * @param direction 
 	 * @param user 
 	 */
-	Notify not;
+	CSRequestFactory cs;
+	public UIElevator()
+	{ 
+		cs =new CSRequestFactory();
+	}
 	
-	public void add_request(int level, Direction direction, IUser user) { 
+	
+	public void add_request(int level, Direction direction, User user) { 
 		// TODO Auto-generated method
+		Notify not=new Notify(level,direction , user);
 		not.setDirection(direction);
-		not=new Notify(level,direction , user);
+		
+		cs.stopRequest(level,direction,not);
+		
 	 }
 
 

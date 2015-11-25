@@ -1,8 +1,12 @@
 package univavignon.m1ilsen.aa.sea.flow.imp;
 
+import java.lang.String;
+
 import univavignon.m1ilsen.aa.sea.commontypes.Direction;
+import univavignon.m1ilsen.aa.sea.commontypes.ElevatorState;
+import univavignon.m1ilsen.aa.sea.elevator.imp.Elevator;
 import univavignon.m1ilsen.aa.sea.elevatorui.interface_.IUIrequest;
-import univavignon.m1ilsen.aa.sea.flow.interface_.IUser;
+import univavignon.m1ilsen.aa.sea.flow.interface_.IRequest;
 
 public class Notify implements IUIrequest {
 
@@ -19,18 +23,18 @@ public class Notify implements IUIrequest {
 	/**
 	 * 
 	 */
-	public IUser user;
+	public User user;
 	/**
 	 * Getter of user
 	 */
-	public IUser getUser() {
+	public User getUser() {
 	 	 return user; 
 	}
 
 	/**
 	 * Setter of user
 	 */
-	public void setUser(IUser user) { 
+	public void setUser(User user) { 
 		 this.user = user; 
 	}
 
@@ -40,7 +44,7 @@ public class Notify implements IUIrequest {
 	 * @param direction 
 	 * @param user 
 	 */
-	public  Notify(int etagedemande, Direction direction, IUser user) { 
+	public  Notify(int etagedemande, Direction direction, User user) { 
 		// TODO Auto-generated method
 		
 	 }
@@ -51,9 +55,9 @@ public class Notify implements IUIrequest {
 	 */
 	public void notifyStop(long t) { 
 		// TODO Auto-generated method
-		direction=getDirection();
 		
-		if(direction!=Direction.none)
+		
+		if(this.direction!=Direction.none)
 		{
 			user.notifyCall(t);
 		}

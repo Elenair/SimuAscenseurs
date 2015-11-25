@@ -10,17 +10,18 @@ import univavignon.m1ilsen.aa.sea.sequencer.interface_.Sequencer;
 
 public class DummyFlow implements IFlow, IUser, Event {
 
-	private UIElevatorRequestFactory IERF = new UIElevatorRequestFactory();
+	private UIElevatorRequestFactory IERF;
 	
 	public DummyFlow()
 	{
+		IERF = new UIElevatorRequestFactory();
 		Sequencer.addProcecss(this, 1000);
 	}
 	
 	@Override
 	public void notifyCall(long t) {
 		System.out.println("notifyCall " + t);
-		IERF.createMove(3,this);
+		//IERF.createMove(3,this);
 		
 	}
 
@@ -39,14 +40,14 @@ public class DummyFlow implements IFlow, IUser, Event {
 
 	@Override
 	public int getMaxLevel() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 5;
+		
 	}
 
 	@Override
 	public void trigger(long t) {
 		System.out.println("trigger flow");
-		IERF.createCall(3,Direction.up,this);
+		//IERF.createCall(3,Direction.up,this);
 		
 	}
 

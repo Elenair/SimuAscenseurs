@@ -21,28 +21,17 @@ public class Flow_System implements Event, IFlow {
 	/**
 	 * 
 	 */
-	public liste_User liste_User;
+	
 	public ArrayList<User> users = new ArrayList<User>();
+	//liste des levels 
 	public ArrayList level=new ArrayList();
 	public ArrayList h_arrive=new ArrayList();
 	private ArrayList<IRequest> requestList;
-	private Sequencer seq;
+	public static  File fic ;
 	Elevator el=new Elevator();
 	UIElevatorRequestFactory uiel=new UIElevatorRequestFactory();
+	public static FlowFactory ff;
 
-	/**
-	 * Getter of liste_User
-	 */
-	public liste_User getListe_User() {
-	 	 return liste_User; 
-	}
-
-	/**
-	 * Setter of liste_User
-	 */
-	public void setListe_User(liste_User liste_User) { 
-		 this.liste_User = liste_User; 
-	}
 
 	/**
 	 * 
@@ -70,7 +59,7 @@ public class Flow_System implements Event, IFlow {
         		u = new User(id,etage_depart,destination,heure_arrive);
         		users.add(u);
         		
-        		//liste de tous les level 
+        		//liste de tous les levels 
         		level.add(destination);
         		
         		// liste de tous les heures d'arrivées
@@ -113,44 +102,25 @@ public class Flow_System implements Event, IFlow {
 	
 	
 	public  void trigger(long t){
-		Sequencer s=new Sequencer();
-		long i=(long)Collections.min(h_arrive);
 		
-		if(i>=t){
-			s.start();
-			
-		}
-		SimpleDateFormat parser = new SimpleDateFormat("HH:mm:ss");
-		Date current = new Date(System.currentTimeMillis());
-		String scurrent=parser.format(current);
 		Iterator<User> us = this.users.iterator();
-		
-		requestList=new ArrayList<IRequest>();
+
 		
 		while(us.hasNext())
 		{  
 			User u=us.next();
-			
+			if(u.getHeure_arrive()>=t){
+			 
 				
-			Date dcall=new Date(u.getHeure_arrive());
-			String scall=parser.format(dcall);
+						 if(u.getDestination()<u.getDepart() && (u.getRequest().getState()==UserState.WAIT)){
+							uiel.createCall(u.getDepart(), Direction.down, u);}
+						 
+						 else if(u.getDestination()>u.getDepart() && (u.getRequest().getState()==UserState.WAIT)){
+								uiel.createCall(u.getDepart(), Direction.up, u);}
 			
-			if(scall.compareTo(scurrent)==0)
-			{
-			 for(IRequest request:requestList)
-				{
-				 if(u.getDestination()<u.getDepart() && (request.getRequest().getState()==UserState.WAIT)){
-					uiel.createCall(el.getPosition(), Direction.down, u);
-					
-				}
-				else if(u.getDestination()>u.getDepart() && (request.getRequest().getState()==UserState.WAIT)){
-					uiel.createMove(u.getDestination(), u);
-			}
-				}
-			}
 		}
-		seq.addProcecss((Event)this, t);
 		
+		}
 	}
 
 	/**
@@ -158,6 +128,7 @@ public class Flow_System implements Event, IFlow {
 	 */
 	public void start() { 
 		// TODO Auto-generated method
+		Sequencer.start();
 	 }
 
 	/**
@@ -165,7 +136,6 @@ public class Flow_System implements Event, IFlow {
 	 */
 	public int getMaxLevel() { 
 		// TODO Auto-generated method
-		
 		return (int)Collections.max(level);
 
 	}
@@ -174,12 +144,30 @@ public class Flow_System implements Event, IFlow {
 		return (long)Collections.min(h_arrive);
 	}
 	
-	
-	public static void main(String[] args) throws Exception {
-		Flow_System fs=new Flow_System();
-		File f=new File("src/flow");
-		fs.lire_flow(f);
-		//fs.afficher();
+
+	public static File flow_completed(ArrayList<User> us){
+		fic=new File("flow_Completed.txt");
+		try
+		{
+		    FileWriter fw = new FileWriter (fic);
+		 
+		    Iterator<User> itr = us.iterator();
+		    
+		    while (itr.hasNext()) {
+		    	User u=itr.next();
+		    	String s = u.getHeure_arrive()+","+u.getHeure_attente()+","+u.getHeure_destination()+","+u.getDepart()+","+u.getDestination();
+		        fw.write (s);
+		        fw.write ("\r\n");
+		    }
+		 
+		    fw.close();
+		}
+		catch (IOException exception)
+		{
+		    System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
+		}
+		
+		return fic;
 	}
 
 }

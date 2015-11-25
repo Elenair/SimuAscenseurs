@@ -1,5 +1,8 @@
 package univavignon.m1ilsen.aa.sea.flow.imp;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import univavignon.m1ilsen.aa.sea.commontypes.UserState;
 import univavignon.m1ilsen.aa.sea.elevator.imp.Elevator;
 import univavignon.m1ilsen.aa.sea.elevatorui.interface_.UIElevatorRequestFactory;
@@ -13,21 +16,15 @@ public class User implements IUser,IRequest {
 	 */
 	
 	private int id, depart,destination;
-	private long heure_arrive,heure_depart;
+	private long heure_arrive,heure_attente,heure_destination;
+	
 	private UserState state;
 	private UIElevatorRequestFactory IEF;
 	private IRequest Request;
+	private Elevator el;
 	private Notify not;
-	
-	public long getHeure_depart() {
-		return heure_depart;
-	}
 
-	public void setHeure_depart(long heure_depart) {
-		this.heure_depart = heure_depart;
-	}
-
-	public UserState getState() {
+    public UserState getState() {
 		return state;
 	}
 
@@ -35,6 +32,14 @@ public class User implements IUser,IRequest {
 	 * 
 	 */
 	public UserRequest userRequest;
+
+	public long getHeure_attente() {
+		return heure_attente;
+	}
+
+	public void setHeure_attente(long heure_attente) {
+		this.heure_attente = heure_attente;
+	}
 
 	public int getDepart() {
 		return depart;
@@ -78,6 +83,8 @@ public class User implements IUser,IRequest {
 		this.destination=destination;
 		this.heure_arrive=heure_arrive;
 		this.state = UserState.WAIT;
+		heure_attente=getHeure_attente();
+		heure_destination=getHeure_destination();
 		
 	 }
 
@@ -89,8 +96,14 @@ public class User implements IUser,IRequest {
 		// TODO Auto-generated method
 		
 		Request.getRequest().setState(UserState.IN);
+		
+		//calcule le temps d'attente 
+		long hr_attente=t;
+		
+		setHeure_attente(hr_attente);
 		System.out.println("L'utilisateur est dans l'ascenseur " );
 		IEF.createMove(this.getDestination(), this);
+		//return heure_attente;
 	 }
 
 	/**
@@ -102,7 +115,17 @@ public class User implements IUser,IRequest {
 
 		Request.getRequest().setState(UserState.SERVED);
 		System.out.println("L'utilisateur  est servi");
+		setHeure_destination(t);
+		
 	 }
+
+	public long getHeure_destination() {
+		return heure_destination;
+	}
+
+	public void setHeure_destination(long heure_destination) {
+		this.heure_destination = heure_destination;
+	}
 
 	/**
 	 * Getter of id

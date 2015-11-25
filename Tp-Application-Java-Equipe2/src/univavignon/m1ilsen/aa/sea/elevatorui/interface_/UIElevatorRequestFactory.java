@@ -63,7 +63,7 @@ public class UIElevatorRequestFactory {
 	 * @param direction 
 	 * @param user 
 	 */
-	public void createCall(int level, Direction direction, IUser user) { 
+	public void createCall(int level, Direction direction, User user) { 
 		// TODO Auto-generated method
 		uIElevator.add_request(level, direction, user);
 	 }
@@ -73,7 +73,7 @@ public class UIElevatorRequestFactory {
 	 * @param  
 	 * @param user 
 	 */
-	public void createMove(int level,IUser user) { 
+	public void createMove(int level,User user) { 
 		// TODO Auto-generated method
 		uIElevator.add_request(level,Direction.none, user);
 	 } 
