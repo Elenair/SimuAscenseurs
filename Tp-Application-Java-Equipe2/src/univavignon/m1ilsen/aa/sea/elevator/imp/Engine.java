@@ -12,7 +12,11 @@ public class Engine{
 	 * 
 	 */
      double speed = 0.0;
-	
+     double movspeed;
+	public Engine(double speed){
+		
+		this.movspeed = speed;
+	}
 	public double getSpeed() {
 	 	 return speed; 
 	}
@@ -30,18 +34,17 @@ public class Engine{
 		if (direction == Direction.up || direction == Direction.down ){
 			ChangeSpeed();
 		}
-		
-		if (direction == Direction.none){
-			stoppingEng();
-		}
 	}
 	
+	public void offEng(){
+		stoppingEng();
+	}
 	public void stoppingEng(){
 		speed = 0.0;
 	}
 	
 	public void ChangeSpeed(){
-		speed =  10.0; 
+		speed =  movspeed; 
 		
 	}
 
