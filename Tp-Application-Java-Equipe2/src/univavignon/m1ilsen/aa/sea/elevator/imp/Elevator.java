@@ -9,15 +9,20 @@ public class Elevator  {
 	/**
 	 * 
 	 */
-	public long temp_ouv;
-	public long temp_ferm;
-	public long temp_attente;
+	 private long time_open;
+	 private long time_close;
+	 private long time_wait;
+	 private long time_sum_trig_open;
+	 private long time_sum_trig_close;
+	 private long time_sum_trig_wait;
+	 
 	
-	public ElevatorState state;
+	 ElevatorState state;
 	/**
 	 * 
 	 */
 	public int position;
+	
 	/**
 	 * 
 	 */
@@ -25,6 +30,12 @@ public class Elevator  {
 	/**
 	 * Getter of state
 	 */
+	public Elevator(long closetime,long opentime, long waitime){
+		time_open = closetime;
+		time_close = opentime;
+		time_wait = waitime;
+	}
+
 	public ElevatorState getState() {
 	 	 return state; 
 	}
@@ -67,31 +78,44 @@ public class Elevator  {
 	
 
 
-	public void Openning(long t) throws InterruptedException { 
+	public void Openning(long t) 
+	{ 
 	
 		// TODO Auto-generated method
-		temp_ouv = t;
-		wait(temp_ouv);
-		state= ElevatorState.open;
+		time_sum_trig_open += t;
+		if(time_sum_trig_open >= time_open){
+			state = ElevatorState.open;
+			
+		}
+		
 	 }
 	/**
 	 * @throws InterruptedException 
 	 * 
 	 */
-	public void closeDoor(long t) throws InterruptedException { 
+	public void closeDoor(long t) { 
 		// TODO Auto-generated method
-		temp_ferm = t;
-		wait(temp_ferm);
-		state = ElevatorState.closed;
+		
+		time_sum_trig_close += t;
+		if(time_sum_trig_close >= time_close){
+			state = ElevatorState.closed;
+		}
 	 }
+	public void waiting(long t){
+		time_sum_trig_wait += t;
+		time_wait -= ((time_sum_trig_close - time_close) + (time_sum_trig_open - time_open));
+		if(time_sum_trig_wait >= time_wait){
+			state = ElevatorState.waiting;
+		}
+	}
 	/**
 	 * 
 	 */
 	public long computeTime(long t) { 
 		// TODO Auto-generated method
-		temp_attente = t;
-		return (temp_attente + temp_ferm + temp_ouv);
+		return (time_wait + time_close + time_open);
 	 }
+	
 	
 
 }
