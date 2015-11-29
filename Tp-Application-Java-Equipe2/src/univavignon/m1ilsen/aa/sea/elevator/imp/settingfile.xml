@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+	<shaftcage>
+		<shaftheight>20.0</shaftheight>
+		<sensorsheight>2.0</sensorsheight>
+		<Nblevel>10</Nblevel>
+		<speedEng>10.0</speedEng>
+		<closetime>5.0</closetime>
+		<opentime>5.0</opentime>
+		<waitime>5.0</waitime>
+	</shaftcage>
+	
+<?xml?>
