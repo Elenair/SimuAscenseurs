@@ -14,7 +14,8 @@ public class Sensor {
 	 * Getter of cross 
 	 */
 	public boolean getCross () {
-	 	 return cross ; 
+	 	  
+		return cross ; 
 	}
 	/**
 	 * Setter of cross 
@@ -37,10 +38,14 @@ public class Sensor {
 	/**
 	 * 
 	 */
-	public void detection () { 
+	public boolean detection () { 
 		// TODO Auto-generated method
 		
-		cross = true;
+		return cross = true;
 	 } 
+	public boolean sensorNoCross()
+	{
+		return cross = false;
+	}
 
 }
