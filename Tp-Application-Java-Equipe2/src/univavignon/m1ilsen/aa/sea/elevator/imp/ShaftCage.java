@@ -83,17 +83,20 @@ public class ShaftCage implements Event,IElevatorCommand {
 		   }
 		}
 		
-		else if(this.elevator.state == ElevatorState.stopping){
+		else if(this.elevator.state == ElevatorState.stopping || this.elevator.state == ElevatorState.closed){
 			engine.offEng();
+			this.elevator.state = ElevatorState.closed;
 			if(this.elevator.state == ElevatorState.closed){
 				elevator.Openning(lasttrigger);
-			}else if (this.elevator.state == ElevatorState.open){
+			}
+		}else if (this.elevator.state == ElevatorState.open){
 				elevator.waiting(lasttrigger);
 			}else if(this.elevator.state == ElevatorState.waiting){
 				elevator.closeDoor(lasttrigger);
+				iElevatorNotifier.notifyState(this.elevator.state, lasttrigger);
 			}
-			iElevatorNotifier.notifyState(this.elevator.state, lasttrigger);
-		}
+			
+		
 			
 	}
 }
